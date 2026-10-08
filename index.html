@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM LAB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="site-header">
+        <div class="header-top">
+          <p class="badge">JS / DOM</p>
+          <button class="theme-switch" id="themeButton" type="button" aria-label="Toggle color theme">
+            <span class="theme-thumb" aria-hidden="true"></span>
+            <span class="theme-option" aria-hidden="true">
+              <svg class="theme-svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"></path>
+              </svg>
+            </span>
+            <span class="theme-option" aria-hidden="true">
+              <svg class="theme-svg" viewBox="0 0 24 24">
+                <path d="M16.2 3.4a8.1 8.1 0 1 0 4.4 13.8A8.4 8.4 0 0 1 16.2 3.4z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <p class="wordmark">DOM LAB</p>
+        <h1>Master the DOM, <span>one interaction at a time.</span></h1>
+        <p class="lede">
+          Learn how JavaScript finds, listens to, and changes elements in the
+          browser through interactive lessons.
+        </p>
+        <p class="live-pill"><span class="live-dot" aria-hidden="true"></span> Interactive lesson</p>
+      </header>
+
+      <section class="progress" aria-label="Lesson progress">
+        <div class="progress-meta">
+          <p class="lesson-code" id="lesson-code">LESSON 01</p>
+          <p class="progress-hint" id="progress-hint">Getting Started</p>
+          <p class="step-fraction" id="step-label">1 / 4</p>
+        </div>
+        <div
+          class="progress-track"
+          id="progress-track"
+          role="progressbar"
+          aria-label="Lesson progress"
+          aria-valuemin="1"
+          aria-valuemax="4"
+          aria-valuenow="1"
+          aria-valuetext="Getting Started, 1 of 4"
+        >
+          <div class="progress-fill is-step-1" id="progress-fill"></div>
+        </div>
+      </section>
+
+      <section class="studio">
+        <div class="studio-mark">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>DOM</span>
+          <span class="studio-mark-label">Interactive</span>
+        </div>
+
+        <div class="tab-list" id="tab-list" role="tablist" aria-label="DOM lessons" aria-orientation="horizontal">
+          <button
+            class="tab active"
+            type="button"
+            role="tab"
+            id="tab-btn-1"
+            aria-selected="true"
+            aria-controls="panel-1"
+            data-panel="panel-1"
+            data-hash="getting-started"
+            data-step="1"
+            data-title="Getting Started"
+            tabindex="0"
+          >
+            <span class="tab-index">01</span>
+            <span class="tab-name">Getting Started</span>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            id="tab-btn-2"
+            aria-selected="false"
+            aria-controls="panel-2"
+            data-panel="panel-2"
+            data-hash="selecting-elements"
+            data-step="2"
+            data-title="Selecting Elements"
+            tabindex="-1"
+          >
+            <span class="tab-index">02</span>
+            <span class="tab-name">Selecting Elements</span>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            id="tab-btn-3"
+            aria-selected="false"
+            aria-controls="panel-3"
+            data-panel="panel-3"
+            data-hash="click-events"
+            data-step="3"
+            data-title="Click Events"
+            tabindex="-1"
+          >
+            <span class="tab-index">03</span>
+            <span class="tab-name">Click Events</span>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            id="tab-btn-4"
+            aria-selected="false"
+            aria-controls="panel-4"
+            data-panel="panel-4"
+            data-hash="updating-the-dom"
+            data-step="4"
+            data-title="Updating the DOM"
+            tabindex="-1"
+          >
+            <span class="tab-index">04</span>
+            <span class="tab-name">Updating the DOM</span>
+          </button>
+        </div>
+
+        <div class="panels">
+          <div class="panel active" role="tabpanel" id="panel-1" aria-labelledby="tab-btn-1" tabindex="0">
+            <p class="panel-kicker">Lesson 01</p>
+            <h2>Getting Started</h2>
+            <p>
+              The DOM is the live tree the browser builds from your HTML. JavaScript reads that tree and updates the page without a reload.
+            </p>
+
+            <ol class="flow" aria-label="How a DOM update moves through the browser">
+              <li>HTML</li>
+              <li>DOM</li>
+              <li>JavaScript</li>
+              <li>Updated UI</li>
+            </ol>
+
+            <div class="split-notes">
+              <article>
+                <h3>Find</h3>
+                <p>Select the element you want to change.</p>
+              </article>
+              <article>
+                <h3>Listen</h3>
+                <p>Wait for a click, a key, or another event.</p>
+              </article>
+              <article>
+                <h3>Update</h3>
+                <p>Change its text, classes, or styles.</p>
+              </article>
+            </div>
+
+            <figure class="code-block">
+              <div class="code-top">
+                <span class="code-lang">JAVASCRIPT</span>
+              </div>
+              <div class="code-scroll">
+                <pre class="code-gutter" aria-hidden="true">1
+2</pre>
+                <pre class="code-pre"><code>const title = document.querySelector("h1");
+title.textContent = "Hello, DOM";</code></pre>
+              </div>
+            </figure>
+
+            <ul class="hint-row">
+              <li>Click a tab to open that lesson</li>
+              <li>Only one lesson is visible at a time</li>
+              <li>The theme button switches light and dark</li>
+            </ul>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-btn-2" tabindex="-1">
+            <p class="panel-kicker">Lesson 02</p>
+            <h2>Selecting Elements</h2>
+            <p>You need a reference to a node before you can change it. These three lookups cover almost every case.</p>
+
+            <div class="method-grid">
+              <article class="method-card">
+                <h3><code>getElementById()</code></h3>
+                <p>Finds one element by its unique id. Direct when you already know that id.</p>
+                <code class="snippet">document.getElementById("panel-1")</code>
+              </article>
+              <article class="method-card">
+                <h3><code>querySelector()</code></h3>
+                <p>Finds the first element that matches a CSS selector.</p>
+                <code class="snippet">document.querySelector(".tab")</code>
+              </article>
+              <article class="method-card">
+                <h3><code>querySelectorAll()</code></h3>
+                <p>Finds every match and returns a list you can loop over.</p>
+                <code class="snippet">document.querySelectorAll(".tab")</code>
+              </article>
+            </div>
+
+            <figure class="code-block">
+              <div class="code-top">
+                <span class="code-lang">JAVASCRIPT</span>
+              </div>
+              <div class="code-scroll">
+                <pre class="code-gutter" aria-hidden="true">1
+2
+3
+4
+5
+6
+7</pre>
+                <pre class="code-pre"><code>const panel = document.getElementById("panel-1");
+const firstTab = document.querySelector(".tab");
+const allTabs = document.querySelectorAll(".tab");
+
+allTabs.forEach((tab) => {
+  console.log(tab.textContent);
+});</code></pre>
+              </div>
+            </figure>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-btn-3" tabindex="-1">
+            <p class="panel-kicker">Lesson 03</p>
+            <h2>Click Events</h2>
+            <p>
+              <code>addEventListener()</code> runs your function when something happens. That function is the event handler.
+            </p>
+
+            <figure class="code-block">
+              <div class="code-top">
+                <span class="code-lang">JAVASCRIPT</span>
+              </div>
+              <div class="code-scroll">
+                <pre class="code-gutter" aria-hidden="true">1
+2
+3
+4
+5
+6
+7</pre>
+                <pre class="code-pre"><code>const button = document.querySelector("#click-demo");
+let clicks = 0;
+
+button.addEventListener("click", () => {
+  clicks += 1;
+  status.textContent = "Event received";
+});</code></pre>
+              </div>
+            </figure>
+
+            <section class="playground" aria-labelledby="event-playground-title">
+              <div class="playground-head">
+                <h3 id="event-playground-title">Event Playground</h3>
+                <p id="click-message" class="click-status" aria-live="polite">Waiting for interaction...</p>
+              </div>
+              <div class="event-layout">
+                <button class="button button-primary" id="click-demo" type="button">Click me</button>
+                <p class="click-total">
+                  <span>Clicks</span>
+                  <strong id="click-count">0</strong>
+                </p>
+              </div>
+            </section>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-btn-4" tabindex="-1">
+            <p class="panel-kicker">Lesson 04</p>
+            <h2>Updating the DOM</h2>
+            <p>Once you have an element, these four tools change what it shows.</p>
+
+            <div class="method-grid method-grid-four">
+              <article class="method-card">
+                <h3><code>textContent</code></h3>
+                <p>Replaces the text inside an element. Use it for plain text.</p>
+              </article>
+              <article class="method-card">
+                <h3><code>innerHTML</code></h3>
+                <p>Replaces markup. Only use HTML you trust, never raw user input.</p>
+              </article>
+              <article class="method-card">
+                <h3><code>classList</code></h3>
+                <p>Adds, removes, or toggles classes. This is the usual way to restyle.</p>
+              </article>
+              <article class="method-card">
+                <h3><code>style</code></h3>
+                <p>Sets one inline style, such as color. Prefer a class when the look is reused.</p>
+              </article>
+            </div>
+
+            <figure class="code-block">
+              <div class="code-top">
+                <span class="code-lang">JAVASCRIPT</span>
+              </div>
+              <div class="code-scroll">
+                <pre class="code-gutter" aria-hidden="true">1
+2
+3
+4</pre>
+                <pre class="code-pre"><code>preview.textContent = "The text changed.";
+preview.innerHTML = "Updated with &lt;strong&gt;markup&lt;/strong&gt;.";
+preview.classList.toggle("is-highlighted");
+preview.style.color = "#c2410c";</code></pre>
+              </div>
+            </figure>
+
+            <section class="playground" aria-labelledby="dom-playground-title">
+              <div class="playground-head">
+                <h3 id="dom-playground-title">DOM Playground</h3>
+                <p>Change the sentence, toggle a class, or put it back.</p>
+              </div>
+              <p id="dom-preview" class="dom-preview" aria-live="polite">Hello from the DOM.</p>
+              <div class="demo-actions">
+                <button class="button button-primary" id="change-text" type="button">Change Text</button>
+                <button class="button button-secondary" id="toggle-class" type="button" aria-pressed="false">
+                  Toggle Highlight
+                </button>
+                <button class="button button-ghost" id="reset-preview" type="button">Reset</button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-brand">DOM LAB</p>
+      <p>Learn JavaScript by interacting with the browser.</p>
+      <p class="footer-meta">Built with HTML • CSS • JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
